@@ -7,16 +7,20 @@ const forms = [
 ]
 
 const activeForms = [
-    {id: '1', form: forms.find((form) => form.id === '1'), progress: 80},
-    {id: '2', form: forms.find((form) => form.id === '2'), progress: 10},
-    {id: '5', form: forms.find((form) => form.id === '5'), progress: 99},
+    {id: '1', form: forms.find((form) => form.id === '1'), progress: 80, nextQuestionId: '2'},
+    {id: '2', form: forms.find((form) => form.id === '2'), progress: 10, nextQuestionId: '1'},
+    {id: '5', form: forms.find((form) => form.id === '5'), progress: 99, nextQuestionId: '3'},
 ]
 
 const questionsPack1 = [
-    {id: '1', content: 'What is your name?'}
+    {id: '1', content: 'What is your name?', answerType: 'ALPHA', nextQuestionId: '2'},
+    {id: '2', content: 'Do you have children?', answerType: 'BOOL', nextQuestionId: '3'},
+    {id: '3', content: 'How many children do you have?', answerType: 'NUMERIC', nextQuestionId: '4'},
+    {id: '4', content: 'Do you have a driver license?', answerType: 'BOOL', nextQuestionId: null}
 ]
 
 export const mockData = {
     forms,
-    activeForms
+    activeForms,
+    questionsPack1
 }

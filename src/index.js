@@ -17,6 +17,7 @@ type ActiveForm {
     id: ID
     form: Form
     progress: Int
+    nextQuestionId: ID
 }
 
 type Account {
@@ -69,10 +70,12 @@ input RegisterAccountInput {
 
 type Query {
     form(id: ID): Form
+    activeForm(id: ID): ActiveForm
     allForms: [Form]
     activeForms: [ActiveForm]
     archiveForms: [ArchivedForm]
     currentAccount: Account
+    question(id: ID): Question
 }
 
 type Mutation {
